@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+/* clickable */
+
+.clickable:active {
+  transform: scale(0.95);
+}
+
+/* animate modal */
+/* Initial state before modal opens */
+.ReactModal__Content {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+  transition: opacity 0.8s ease-out, transform 0.5s ease-out;
+}
+
+/* When modal is open */
+.ReactModal__Content--after-open {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* When modal is closing */
+.ReactModal__Content--before-close {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
+/* gradient animated shadow */
+/* Keyframes for animated gradient shadow */
+@keyframes gradientShadow {
+  0% {
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1), 0 0 30px 10px #4a90e2,
+      0 0 50px 20px #a7c7f0;
+  }
+  50% {
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1), 0 0 30px 10px #a7c7f0,
+      0 0 50px 20px #4a90e2;
+  }
+  100% {
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1), 0 0 30px 10px #4a90e2,
+      0 0 50px 20px #a7c7f0;
+  }
+}
+
+/* Button style with gradient shadow */
+.shadow {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #fff;
+  color: #333;
+  position: relative;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  animation: gradientShadow 3s infinite alternate;
+}
+
+.shadow:hover {
+  background-color: #f0f0f0;
+}
+
+/* global utility font weights */
+.manrope-thin {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 100;
+}
+
+.manrope-extralight {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 200;
+}
+
+.manrope-light {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 300;
+}
+
+.manrope-regular {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+}
+
+.manrope-medium {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 500;
+}
+
+.manrope-semibold {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+}
+
+.manrope-bold {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+}
+
+.manrope-extrabold {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+}
+
+.manrope-black {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 900;
+}
+
+/* hero-section gradient animation  */
+
+.gradient-animate {
+  background: linear-gradient(
+    315deg,
+    #a960ee 3%,
+    #d5d5d5 38%,
+    #90e0ff 68%,
+    #ffcb57 98%
+  );
+  animation: gradient 10s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.wave {
+  background: rgb(255 255 155 / 25%);
+  border-radius: 1000% 1000% 0 0;
+  position: fixed;
+  width: 200%;
+  height: 12em;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+  bottom: -1.25em;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.8;
+}
+.wave:nth-of-type(3) {
+  bottom: -2.5em;
+  animation: wave 20s -1s reverse infinite;
+  opacity: 0.9;
+}
+
+@keyframes wave {
+  2% {
+    transform: translateX(1);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  75% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(1);
+  }
+}
+
+/* up down infinite animation */
+@keyframes upDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.infinite-updown-animate {
+  animation: upDown 5s infinite ease-in-out;
+}
+
+/* headings */
+.heading-color {
+  background: linear-gradient(to right, #0c101d, #6d87dc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* testimonial section card */
+#testimonial-card-I {
+  cursor: pointer;
+  max-width: 250px;
+  background-color: white;
+  color: #867c5b;
+  padding: 18px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.5;
+  position: relative;
+  margin: 10px 0;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  word-wrap: break-word;
+}
+
+#testimonial-card-I .header {
+  display: flex;
+}
+#testimonial-card-I img {
+  margin-right: 0.3rem;
+  border-radius: 100%;
+  height: 2.5rem;
+}
+#testimonial-card-I .info {
+  display: flex;
+  flex-direction: column;
+}
+#testimonial-card-I .info h5 {
+  color: #425466;
+  font-size: 0.95rem;
+}
+#testimonial-card-I .info span {
+  font-size: 0.8rem;
+  color: #6b8299;
+}
+
+#testimonial-card-I .testimonial-body {
+  margin-top: 1rem;
+  color: #69737d;
+  border-left: 2px solid #cbd1d6;
+  padding-left: 1rem;
+  font-size: 0.8rem;
+}
+
+/* prioritize-modal */
+.ReactModal__Overlay {
+  z-index: 999;
+}
+
