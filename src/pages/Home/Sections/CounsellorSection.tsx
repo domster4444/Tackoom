@@ -16,6 +16,12 @@ export default function CounsellorSection({
   const counsellorData = [
     {
       imageUrl:
+        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-profile-pics.s3.ap-south-1.amazonaws.com%2Fprofile_pic_2e5c3b3c-2094-49f5-bd04-18e07a1dc93a.jpeg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
+      name: 'Thythm Sehgal',
+      description: 'Software Engineer at Questionpro || Ex-strage',
+    },
+    {
+      imageUrl:
         'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.amazonaws.com%2FeoQugaNcj1ygYEVBnqSMce.jpg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
       name: 'Sahil Shrestha',
       description: 'Software Engineer at Questionpro || Ex-strage',
@@ -44,12 +50,7 @@ export default function CounsellorSection({
       name: 'Sonia Joshi',
       description: 'Software Engineer at Questionpro || Ex-strage',
     },
-    {
-      imageUrl:
-        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-profile-pics.s3.ap-south-1.amazonaws.com%2Fprofile_pic_2e5c3b3c-2094-49f5-bd04-18e07a1dc93a.jpeg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
-      name: 'Thythm Sehgal',
-      description: 'Software Engineer at Questionpro || Ex-strage',
-    },
+
     {
       imageUrl:
         'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.amazonaws.com%2FpQDdWidwLsKExikMqE4vh6.jpg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
