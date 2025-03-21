@@ -16,12 +16,6 @@ export default function CounsellorSection({
   const counsellorData = [
     {
       imageUrl:
-        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-profile-pics.s3.ap-south-1.amazonaws.com%2Fprofile_pic_2e5c3b3c-2094-49f5-bd04-18e07a1dc93a.jpeg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
-      name: 'Thythm Sehgal',
-      description: 'Software Engineer at Questionpro || Ex-strage',
-    },
-    {
-      imageUrl:
         'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.amazonaws.com%2FeoQugaNcj1ygYEVBnqSMce.jpg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
       name: 'Sahil Shrestha',
       description: 'Software Engineer at Questionpro || Ex-strage',
@@ -50,7 +44,12 @@ export default function CounsellorSection({
       name: 'Sonia Joshi',
       description: 'Software Engineer at Questionpro || Ex-strage',
     },
-
+    {
+      imageUrl:
+        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-profile-pics.s3.ap-south-1.amazonaws.com%2Fprofile_pic_2e5c3b3c-2094-49f5-bd04-18e07a1dc93a.jpeg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
+      name: 'Thythm Sehgal',
+      description: 'Software Engineer at Questionpro || Ex-strage',
+    },
     {
       imageUrl:
         'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.amazonaws.com%2FpQDdWidwLsKExikMqE4vh6.jpg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
@@ -66,54 +65,6 @@ export default function CounsellorSection({
     {
       imageUrl:
         'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.ap-south-1.amazonaws.com%2Fatkhk5tesgrgQXEMqRgE7J.jpeg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
-      name: 'Thythm Sehgal',
-      description: 'Software Engineer at Questionpro || Ex-strage',
-    },
-    {
-      imageUrl:
-        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.amazonaws.com%2FeoQugaNcj1ygYEVBnqSMce.jpg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
-      name: 'Sahil Shrestha',
-      description: 'Software Engineer at Questionpro || Ex-strage',
-    },
-    {
-      imageUrl:
-        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.amazonaws.com%2Fkm3AZ8FthkDtorR8hy4uSQ.jpg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
-      name: 'Kristina Acharya',
-      description: 'Software Engineer at Questionpro || Ex-strage',
-    },
-    {
-      imageUrl:
-        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.amazonaws.com%2Fa7USjnNu4Dn4xnssGkaij7.png&w=256&q=60&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
-      name: 'Prakriti Sehgal',
-      description: 'Software Engineer at Questionpro || Ex-strage',
-    },
-    {
-      imageUrl:
-        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.amazonaws.com%2F49HSGa3Mw4K6ceHBD7Mh74.png&w=256&q=60&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
-      name: 'Ritesh Niraula',
-      description: 'Software Engineer at Questionpro || Ex-strage',
-    },
-    {
-      imageUrl:
-        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.ap-south-1.amazonaws.com%2F2HXHgWhGHwK2V7ZwNRpM26.png&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
-      name: 'Sonia Joshi',
-      description: 'Software Engineer at Questionpro || Ex-strage',
-    },
-    {
-      imageUrl:
-        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-profile-pics.s3.ap-south-1.amazonaws.com%2Fprofile_pic_2e5c3b3c-2094-49f5-bd04-18e07a1dc93a.jpeg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
-      name: 'Thythm Sehgal',
-      description: 'Software Engineer at Questionpro || Ex-strage',
-    },
-    {
-      imageUrl:
-        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.amazonaws.com%2FpQDdWidwLsKExikMqE4vh6.jpg&w=384&q=65&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
-      name: 'Thythm Sehgal',
-      description: 'Software Engineer at Questionpro || Ex-strage',
-    },
-    {
-      imageUrl:
-        'https://topmate.io/_next/image?url=https%3A%2F%2Ftopmate-staging.s3.ap-south-1.amazonaws.com%2FgKAUQ8NAY6g1Zr5zdLPjkD.png&w=256&q=60&dpl=dpl_77n67n6BgFb3oLNnydhcvcr18hbb',
       name: 'Thythm Sehgal',
       description: 'Software Engineer at Questionpro || Ex-strage',
     },
@@ -145,7 +96,6 @@ export default function CounsellorSection({
             <CounsellorCard data-aos="fade-up" imgProps={imgProps}>
               <div>
                 <div className="img-container">
-                  <img src={counsellor.imageUrl} alt="" />
                   {imgProps !== 'full' && (
                     <div>
                       <span className="manrope-regular">
@@ -156,9 +106,14 @@ export default function CounsellorSection({
                       </span>
                     </div>
                   )}
+                  <img src={counsellor.imageUrl} alt="" />
                 </div>
-                <h6 className="manrope-bold">{counsellor.name}</h6>
-                <p className="manrope-regular">{counsellor.description}</p>
+                <h6 className="manrope-bold">
+                  <center>{counsellor.name}</center>
+                </h6>
+                <p className="manrope-regular">
+                  <center>{counsellor.description}</center>
+                </p>
                 <div className="btn-container">
                   {type === 'profile' && (
                     <Button
@@ -208,6 +163,7 @@ const CounsellorCard = styled.div<{ imgProps: string }>`
   border: 1px solid #d3d3d3d3;
   overflow: hidden;
   padding: 0.55rem 0.35rem;
+
   h6 {
     font-size: 1rem;
   }
@@ -217,12 +173,15 @@ const CounsellorCard = styled.div<{ imgProps: string }>`
   img {
     border-radius: ${(props) =>
       props.imgProps === 'full' ? '.45rem' : '100%'};
-    width: ${(props) => (props.imgProps === 'full' ? '100%' : '6.5rem')};
+    width: ${(props) => (props.imgProps === 'full' ? '100%' : '8.5rem')};
+    max-width: ${(props) => (props.imgProps === 'full' ? '12rem' : '8.5rem')};
     margin: ${(props) => (props.imgProps === 'full' ? '0' : '0.85rem')};
   }
   .img-container {
-    display: ${(props) => (props.imgProps === 'full' ? 'inline' : 'flex')};
+    display: flex;
+    justify-content: center;
     span {
+      position: absolute;
       display: flex;
       align-items: center;
       padding: 0 0.25rem 0 0;

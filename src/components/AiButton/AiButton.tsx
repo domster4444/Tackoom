@@ -1,8 +1,9 @@
+//@ts-nocheck
 import styled from 'styled-components';
 import { Flower } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Modal from 'react-modal';
-import { useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const customStyles = {
   content: {
@@ -12,14 +13,24 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
+    width: '90%',
+    maxWidth: '600px',
+    padding: '20px',
   },
 };
 
 Modal.setAppElement('#root');
 
 const AiButton = () => {
-  const [modalIsOpen, setIsOpen] = useState<boolean>(false);
-  const subtitleRef = useRef<HTMLHeadingElement>(null);
+  const messagesEndRef = useRef(null);
+
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const [input, setInput] = useState('');
+  const [loading, setLoading] = useState(false);
+  const subtitleRef = useRef(null);
+  const apiKey = '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'; // Replace with your actual API key
+  const apiUrl = 'https://api.perplexity.ai/chat/completions';
 
   function openModal() {
     setIsOpen(true);
@@ -27,7 +38,7 @@ const AiButton = () => {
 
   function afterOpenModal() {
     if (subtitleRef.current) {
-      subtitleRef.current.style.color = '#f00';
+      subtitleRef.current.style.color = '#0952b3';
     }
   }
 
@@ -35,9 +46,48 @@ const AiButton = () => {
     setIsOpen(false);
   }
 
+  const sendMessage = async () => {
+    if (!input.trim()) return;
+    const newMessages = [...messages, { sender: 'user', content: input }];
+    setMessages(newMessages);
+    setInput('');
+    setLoading(true);
+
+    try {
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiKey}`,
+        },
+        body: JSON.stringify({
+          model: 'llama-3.1-sonar-large-128k-online',
+          messages: [{ role: 'user', content: input }],
+        }),
+      });
+      const data = await response.json();
+      const formattedResponse = data.choices[0].message.content.replace(
+        /\[\d+\]/g,
+        ''
+      );
+      setMessages([
+        ...newMessages,
+        { sender: 'ai', content: formattedResponse },
+      ]);
+    } catch (error) {
+      console.error('Error fetching response:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages]);
+
   return (
     <>
-      <Button className="manrope-semibold shadow" onClick={openModal}>
+      <Button onClick={openModal}>
         <Flower color="white" />
         <span>Ai Chat</span>
       </Button>
@@ -48,7 +98,39 @@ const AiButton = () => {
         onRequestClose={closeModal}
         style={customStyles}
       >
-        <h1 className="manrope-regular">Modal For AI CHAT BOX</h1>
+        <h3 ref={subtitleRef} className="manrope-bold">
+          Tackoom AI
+        </h3>
+        <ChatContainer className="manrope-regular">
+          <MessageContainer>
+            {messages.map((msg, index) => (
+              <Message
+                key={index}
+                className={msg.sender === 'user' ? 'user' : 'ai'}
+              >
+                {msg.sender === 'ai' ? (
+                  <ReactMarkdown>{msg.content}</ReactMarkdown>
+                ) : (
+                  msg.content
+                )}
+              </Message>
+            ))}
+            {loading && (
+              <LoadingIndicator>Loading response...</LoadingIndicator>
+            )}
+            <div ref={messagesEndRef} />
+          </MessageContainer>
+          <InputContainer>
+            <input
+              type="text"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="Type your message..."
+              onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+            />
+            <button onClick={sendMessage}>Send</button>
+          </InputContainer>
+        </ChatContainer>
       </Modal>
     </>
   );
@@ -72,37 +154,70 @@ const Button = styled.button`
   color: white;
   padding: 0.25rem 0.55rem;
   border-radius: 0.5rem;
-  border: 2px solid transparent;
   transition: all 0.5s ease-in-out;
-  svg {
-    height: 1rem;
-    animation: rotateInfinite 2s linear infinite;
-    margin-right: 4px;
-  }
+
   &:hover {
-    color: black;
     background-color: white;
+    color: black;
     border: 2px solid #0952b3;
-    transition: all 0.5s ease-in-out;
-    svg {
-      transition: all 0.5s ease-in-out;
-      transform: scale(1.4) rotate(360deg);
-      fill: black;
-      animation: rotateInfinite 2s linear infinite;
-    }
+  }
+`;
+
+const ChatContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+`;
+
+const MessageContainer = styled.div`
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Message = styled.div`
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  max-width: 70%;
+  font-size: 0.85rem;
+  word-wrap: break-word;
+  /* display: flex; */
+  align-items: center;
+  background-color: ${({ className }) =>
+    className === 'user' ? '#e0e0e0' : '#0952b3'};
+  color: ${({ className }) => (className === 'user' ? 'black' : 'white')};
+  align-self: ${({ className }) =>
+    className === 'user' ? 'flex-end' : 'flex-start'};
+`;
+
+const LoadingIndicator = styled.div`
+  padding: 10px;
+  color: gray;
+  text-align: center;
+`;
+
+const InputContainer = styled.div`
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+
+  input {
+    flex-grow: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
   }
 
-  &:active {
-    transition: all 0.2s ease-in-out;
-    transform: scale(1.1);
-  }
-
-  @keyframes rotateInfinite {
-    0% {
-      transform: scale(1.4) rotate(0deg);
-    }
-    100% {
-      transform: scale(1.4) rotate(360deg);
-    }
+  button {
+    padding: 10px;
+    margin-left: 5px;
+    background-color: #0952b3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
   }
 `;
