@@ -145,6 +145,7 @@ const Button = styled.button`
   position: sticky;
   bottom: 1rem;
   left: 50%;
+  transform: translateX(-50%);
   cursor: pointer;
   background-color: #0952b3;
   width: 7rem;
@@ -157,6 +158,7 @@ const Button = styled.button`
   padding: 0.25rem 0.55rem;
   border-radius: 0.5rem;
   transition: all 0.5s ease-in-out;
+  border: 2px solid transparent;
 
   &:hover {
     background-color: white;

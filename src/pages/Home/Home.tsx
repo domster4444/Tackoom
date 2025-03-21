@@ -8,6 +8,7 @@ import ExploreSection from './Sections/ExploreSection';
 import CategorySection from './Sections/CategorySection';
 import OrganizationSection from './Sections/OrganizationSection';
 import EnterpriseSection from './Sections/EnterpriseSection';
+import VideoSection from './Sections/VideoSection';
 import Footer from '../../components/Footer';
 import AiButton from '../../components/AiButton/AiButton';
 
@@ -85,6 +86,11 @@ const Home = () => {
       {/* ExploreSection */}
       <SectionContainer bgColor="#ffffff" padding="25px 0px">
         <ExploreSection />
+      </SectionContainer>
+
+      {/* Video Section */}
+      <SectionContainer bgColor="#ffffff" padding="25px 0px">
+        <VideoSection data-aos="zoom-in" />
       </SectionContainer>
 
       <AiButton />
