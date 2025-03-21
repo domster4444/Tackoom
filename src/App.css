@@ -13,6 +13,7 @@
 /* animate modal */
 /* Initial state before modal opens */
 .ReactModal__Content {
+  border-radius: 1.25rem !important;
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.9);
   transition: opacity 0.8s ease-out, transform 0.5s ease-out;
@@ -67,47 +68,47 @@
 
 /* global utility font weights */
 .manrope-thin {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Urbanist', sans-serif;
   font-weight: 100;
 }
 
 .manrope-extralight {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Urbanist', sans-serif;
   font-weight: 200;
 }
 
 .manrope-light {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Urbanist', sans-serif;
   font-weight: 300;
 }
 
 .manrope-regular {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Urbanist', sans-serif;
   font-weight: 400;
 }
 
 .manrope-medium {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Urbanist', sans-serif;
   font-weight: 500;
 }
 
 .manrope-semibold {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Urbanist', sans-serif;
   font-weight: 600;
 }
 
 .manrope-bold {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Urbanist', sans-serif;
   font-weight: 700;
 }
 
 .manrope-extrabold {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Urbanist', sans-serif;
   font-weight: 800;
 }
 
 .manrope-black {
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Urbanist', sans-serif;
   font-weight: 900;
 }
 

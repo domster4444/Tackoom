@@ -74,7 +74,7 @@ export default function CounsellorSection({
     <>
       <Heading className="manrope-semibold heading-color">
         <center>
-          Premium Picks.
+          {title}.
           <a href="#" className="manrope-regular">
             <u>See all</u>
           </a>
@@ -120,7 +120,7 @@ export default function CounsellorSection({
                       variant="icon"
                       icon={Telescope}
                       label="View Profile"
-                      bgColor="#0466CF"
+                      bgColor="#105299"
                     />
                   )}
                   {type === 'ctoCard' && (
@@ -129,7 +129,7 @@ export default function CounsellorSection({
                         variant="icon"
                         icon={PhoneCall}
                         label="Call now"
-                        bgColor="#0466CF"
+                        bgColor="#105299"
                       />
                       {/* <Button
                         variant="icon"

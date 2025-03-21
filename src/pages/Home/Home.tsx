@@ -7,6 +7,7 @@ import DiscoverSection from './Sections/DiscoverSection';
 import ExploreSection from './Sections/ExploreSection';
 import CategorySection from './Sections/CategorySection';
 import OrganizationSection from './Sections/OrganizationSection';
+import EnterpriseSection from './Sections/EnterpriseSection';
 import Footer from '../../components/Footer';
 import AiButton from '../../components/AiButton/AiButton';
 
@@ -26,7 +27,7 @@ const Home = () => {
       <SectionContainer bgColor="#ffffff" padding="20px 0px">
         <Section>
           <CounsellorSection
-            title="Top Picks."
+            title="Top Picks"
             imgProps="circular"
             type="ctoCard"
           />
@@ -44,7 +45,17 @@ const Home = () => {
       <SectionContainer bgColor="#ffffff" padding="20px 0px">
         <Section>
           <CounsellorSection
-            title="Premium Picks."
+            title="Premium Picks"
+            imgProps="full"
+            type="profile"
+          />
+        </Section>
+      </SectionContainer>
+      {/* enterprise carousel */}
+      <SectionContainer bgColor="#ffffff" padding="20px 0px">
+        <Section>
+          <EnterpriseSection
+            title="Organizations"
             imgProps="full"
             type="profile"
           />

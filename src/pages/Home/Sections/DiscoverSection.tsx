@@ -1,16 +1,19 @@
 import styled from 'styled-components';
 import { Pin, Search, Command } from 'lucide-react';
 import Button from '../../../components/Button/Button';
+import FramerBlock from '../../../components/FramerBlock/FramerBlock';
 
 const DiscoverSection = () => {
   return (
     <Container>
       <ContainerBox>
         <LeftDivision data-aos="fade-right">
-          <img
+          {/* <img
             src="https://i.ibb.co/Kxy2nJqZ/discover-section-img.png"
             alt=""
-          />
+          /> */}
+
+          <FramerBlock />
         </LeftDivision>
         <RightDivision data-aos="fade-left">
           <h4 className="manrope-bold heading-color">
@@ -25,7 +28,7 @@ const DiscoverSection = () => {
               <h6 className="manrope-semibold heading-color">
                 No cost to join
               </h6>
-              <p className="manrope-thin ">
+              <p className="manrope-regular ">
                 Register and explore scholarship opportunities, browse counselor
                 profiles, or even book a free consultation.
               </p>
@@ -39,7 +42,7 @@ const DiscoverSection = () => {
               <h6 className="manrope-semibold heading-color">
                 Find the best scholarships and counselors
               </h6>
-              <p className="manrope-thin ">
+              <p className="manrope-regular ">
                 Register to access a range of scholarship options and get
                 personalized guidance from expert counselors.
               </p>
@@ -53,9 +56,23 @@ const DiscoverSection = () => {
               <h6 className="manrope-semibold heading-color">
                 Unlock your scholarship without financial stress
               </h6>
-              <p className="manrope-thin ">
+              <p className="manrope-regular ">
                 Find the perfect scholarship and receive tailored advice from
                 top counselors to help you succeed.
+              </p>
+            </div>
+          </div>
+          <div className="list">
+            <div className="listIconContainer">
+              <Pin />
+            </div>
+            <div className="listInfo">
+              <h6 className="manrope-semibold heading-color">
+                No cost to join
+              </h6>
+              <p className="manrope-regular ">
+                Register and explore scholarship opportunities, browse counselor
+                profiles, or even book a free consultation.
               </p>
             </div>
           </div>
