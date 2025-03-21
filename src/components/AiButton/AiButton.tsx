@@ -62,7 +62,9 @@ const AiButton = () => {
         },
         body: JSON.stringify({
           model: 'llama-3.1-sonar-large-128k-online',
-          messages: [{ role: 'user', content: input }],
+          messages: [
+            { role: 'user', content: input + '(give answer in max 4 lines)' },
+          ],
         }),
       });
       const data = await response.json();
