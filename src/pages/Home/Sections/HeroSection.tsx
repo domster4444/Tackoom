@@ -131,6 +131,10 @@ const Badge = styled.span`
 
 // hero-section
 const HeroSectionMain = styled.div`
+  @media (min-width: 768px) {
+    padding-top: 3.5rem;
+  }
+
   @media (max-width: 1075px) {
     padding-top: 5rem;
   }
