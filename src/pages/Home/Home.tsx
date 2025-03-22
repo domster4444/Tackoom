@@ -11,6 +11,7 @@ import EnterpriseSection from './Sections/EnterpriseSection';
 import VideoSection from './Sections/VideoSection';
 import Footer from '../../components/Footer';
 import AiButton from '../../components/AiButton/AiButton';
+import SkillSection from './Sections/SkillSection';
 
 interface SectionContainerProps {
   bgColor?: string;
@@ -33,6 +34,11 @@ const Home = () => {
             type="ctoCard"
           />
         </Section>
+      </SectionContainer>
+
+      {/* Skill Section */}
+      <SectionContainer bgColor="#ffffff" padding="25px 0px">
+        <SkillSection />
       </SectionContainer>
 
       {/* CategorySection */}
@@ -90,7 +96,7 @@ const Home = () => {
 
       {/* Video Section */}
       <SectionContainer bgColor="#ffffff" padding="25px 0px">
-        <VideoSection data-aos="zoom-in" />
+        <VideoSection />
       </SectionContainer>
 
       <AiButton />

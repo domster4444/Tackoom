@@ -5,6 +5,8 @@ import { useState, useRef, useEffect } from 'react';
 import Modal from 'react-modal';
 import ReactMarkdown from 'react-markdown';
 
+import AILogo from '../../assets/ai-logo.png';
+
 const customStyles = {
   content: {
     top: '50%',
@@ -100,11 +102,17 @@ const AiButton = () => {
         onRequestClose={closeModal}
         style={customStyles}
       >
-        <h3 ref={subtitleRef} className="manrope-bold">
+        <ChatHeader ref={subtitleRef} className="manrope-bold">
+          <img src={AILogo} alt="ai logo" height={30} />
           Tackoom AI
-        </h3>
+        </ChatHeader>
         <ChatContainer className="manrope-regular">
           <MessageContainer>
+            {messages.length === 0 && !loading && (
+              <PlaceholderMessage>
+                Ready to explore? Ask AI anything and get instant answers! 🚀
+              </PlaceholderMessage>
+            )}
             {messages.map((msg, index) => (
               <Message
                 key={index}
@@ -140,12 +148,41 @@ const AiButton = () => {
 
 export default AiButton;
 
+const ChatHeader = styled.h3`
+  display: flex;
+  align-items: center;
+  color: #0952b3 !important;
+`;
+const PlaceholderMessage = styled.p`
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 20px 0;
+  padding: 15px;
+  background: linear-gradient(165deg, #0952b3, #b1e2ff);
+  border-radius: 0.35rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  max-width: 80%;
+  margin: auto;
+  animation: fadeIn 0.8s ease-in-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
 const Button = styled.button`
-  z-index: 9;
   position: sticky;
   bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
+  margin: auto;
   cursor: pointer;
   background-color: #0952b3;
   width: 7rem;
@@ -157,13 +194,36 @@ const Button = styled.button`
   color: white;
   padding: 0.25rem 0.55rem;
   border-radius: 0.5rem;
-  transition: all 0.5s ease-in-out;
   border: 2px solid transparent;
-
+  transition: all 0.5s ease-in-out;
+  svg {
+    margin-right: 4px;
+  }
   &:hover {
-    background-color: white;
     color: black;
+    background-color: white;
     border: 2px solid #0952b3;
+    transition: all 0.5s ease-in-out;
+    svg {
+      transition: all 0.5s ease-in-out;
+      transform: scale(1.4) rotate(360deg);
+      fill: black;
+      animation: rotateInfinite 2s linear infinite;
+    }
+  }
+
+  &:active {
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.1);
+  }
+
+  @keyframes rotateInfinite {
+    0% {
+      transform: scale(1.4) rotate(0deg);
+    }
+    100% {
+      transform: scale(1.4) rotate(360deg);
+    }
   }
 `;
 
@@ -209,6 +269,7 @@ const InputContainer = styled.div`
   border-top: 1px solid #ddd;
 
   input {
+    outline: none;
     flex-grow: 1;
     padding: 10px;
     border-radius: 5px;

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Intro from '../../../assets/introvdo.mp4'; // Video import
 
 const Container = styled.div`
   display: flex;
@@ -10,18 +11,20 @@ const Container = styled.div`
 `;
 
 const VideoWrapper = styled.div`
-  width: 100%;
-  max-width: 768px;
+  min-width: 78%;
+
+  @media (max-width: 768px) {
+    min-width: 100% !important;
+  }
   border-radius: 16px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   background-color: #2a2a2a;
 `;
 
-const StyledIframe = styled.iframe`
+const StyledVideo = styled.video`
   width: 100%;
   height: 360px;
   border-radius: 12px;
-  border: none;
   @media (min-width: 768px) {
     height: 450px;
   }
@@ -38,13 +41,10 @@ const VideoSection = () => {
           <b>Glimpse at Tackoom</b>
         </Heading>
         <VideoWrapper>
-          <StyledIframe
-            src="https://www.youtube.com/embed/BkhaV46HM2E?si=7dzuKJL-AsfKHGM7"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></StyledIframe>
+          <StyledVideo controls>
+            <source src={Intro} type="video/mp4" />
+            Your browser does not support the video tag.
+          </StyledVideo>
         </VideoWrapper>
       </Wrapper>
     </Container>

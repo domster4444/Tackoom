@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import styled from 'styled-components';
 import 'swiper/css';
+import { useState, useEffect } from 'react';
 import Button from '../../../components/Button/Button';
 import { Telescope, PhoneCall, CalendarDays } from 'lucide-react';
 
@@ -13,6 +14,17 @@ export default function CounsellorSection({
   title: string;
   type: string;
 }) {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 700); // Mobile breakpoint
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const counsellorData = [
     {
       imageUrl:
@@ -81,19 +93,10 @@ export default function CounsellorSection({
         </center>
       </Heading>
 
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={1}
-        breakpoints={{
-          640: { slidesPerView: 4, spaceBetween: 20 },
-          768: { slidesPerView: 4, spaceBetween: 20 },
-          1024: { slidesPerView: 5, spaceBetween: 20 },
-        }}
-        className="mySwiperrr"
-      >
-        {counsellorData.map((counsellor, index) => (
-          <SwiperSlide key={index}>
-            <CounsellorCard data-aos="fade-up" imgProps={imgProps}>
+      {isMobile ? (
+        <VerticalStack>
+          {counsellorData.map((counsellor, index) => (
+            <CounsellorCard imgProps={imgProps}>
               <div>
                 <div className="img-container">
                   {imgProps !== 'full' && (
@@ -132,21 +135,91 @@ export default function CounsellorSection({
                         bgColor="#105299"
                       />
                       {/* <Button
-                        variant="icon"
-                        icon={CalendarDays}
-                        bgColor="#919191"
-                      /> */}
+                    variant="icon"
+                    icon={CalendarDays}
+                    bgColor="#919191"
+                  /> */}
                     </>
                   )}
                 </div>
               </div>
             </CounsellorCard>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          ))}
+        </VerticalStack>
+      ) : (
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={1}
+          breakpoints={{
+            640: { slidesPerView: 4, spaceBetween: 20 },
+            768: { slidesPerView: 4, spaceBetween: 20 },
+            1024: { slidesPerView: 5, spaceBetween: 20 },
+          }}
+          className="mySwiperrr"
+        >
+          {counsellorData.map((counsellor, index) => (
+            <SwiperSlide key={index}>
+              <CounsellorCard imgProps={imgProps}>
+                <div>
+                  <div className="img-container">
+                    {imgProps !== 'full' && (
+                      <div>
+                        <span className="manrope-regular">
+                          <div className="circular-blob">
+                            <div className="inner-blob"></div>
+                          </div>
+                          <div>available</div>
+                        </span>
+                      </div>
+                    )}
+                    <img src={counsellor.imageUrl} alt="" />
+                  </div>
+                  <h6 className="manrope-bold">
+                    <center>{counsellor.name}</center>
+                  </h6>
+                  <p className="manrope-regular">
+                    <center>{counsellor.description}</center>
+                  </p>
+                  <div className="btn-container">
+                    {type === 'profile' && (
+                      <Button
+                        variant="icon"
+                        icon={Telescope}
+                        label="View Profile"
+                        bgColor="#105299"
+                      />
+                    )}
+                    {type === 'ctoCard' && (
+                      <>
+                        <Button
+                          variant="icon"
+                          icon={PhoneCall}
+                          label="Call now"
+                          bgColor="#105299"
+                        />
+                        {/* <Button
+                        variant="icon"
+                        icon={CalendarDays}
+                        bgColor="#919191"
+                      /> */}
+                      </>
+                    )}
+                  </div>
+                </div>
+              </CounsellorCard>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </>
   );
 }
+
+const VerticalStack = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
 
 const Heading = styled.h4`
   font-size: 1.4rem;

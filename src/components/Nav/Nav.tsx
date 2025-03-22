@@ -3,10 +3,11 @@ import styled from 'styled-components';
 
 import CompanyLogo from '../../assets/logo.png';
 
-import { LogIn } from 'lucide-react';
+import { LogIn, Search } from 'lucide-react';
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [search, setSearch] = useState('');
 
   return (
     <Header>
@@ -34,14 +35,30 @@ const Nav = () => {
             Book a call
           </MenuLink>
         </Menu>
-        <Menu isOpen={isOpen}>
-          <MenuLink
-            className="sign-in manrope-semibold"
-            href="https://www.tackoom.com/login"
-          >
-            Sign in <LogIn />
-          </MenuLink>
-        </Menu>
+
+        <CTOMenuWrapper>
+          {/* Search Bar */}
+          <SearchContainer>
+            <SearchInput
+              type="text"
+              placeholder="Search..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
+            <SearchIcon>
+              <Search size={18} />
+            </SearchIcon>
+          </SearchContainer>
+
+          <Menu isOpen={isOpen}>
+            <MenuLink
+              className="sign-in manrope-semibold"
+              href="https://www.tackoom.com/login"
+            >
+              Sign in <LogIn />
+            </MenuLink>
+          </Menu>
+        </CTOMenuWrapper>
       </NavBar>
     </Header>
   );
@@ -49,22 +66,62 @@ const Nav = () => {
 
 export default Nav;
 
+const CTOMenuWrapper = styled.div`
+  display: flex;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+/* Search Bar */
+const SearchContainer = styled.div`
+  display: flex;
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 8px;
+  padding: 5px 10px;
+  max-width: 250px;
+  margin-right: 1rem;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const SearchInput = styled.input`
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 5px;
+  font-size: 14px;
+  width: 100%;
+`;
+
+const SearchIcon = styled.div`
+  color: #105299;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+`;
+
 const SiteLogo = styled.img`
   border-radius: 5rem;
 `;
 
-const Header = styled.header`
-  width: 100%;
-`;
+const Header = styled.header``;
 
 const NavBar = styled.nav`
+  background-color: white;
   position: fixed;
   width: 100%;
   z-index: 99;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  @media (max-width: 768px) {
+    justify-content: space-between;
+  }
   align-items: center;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   padding: 1rem;
   flex-wrap: wrap;
   margin-left: 50%;
@@ -105,9 +162,11 @@ const Menu = styled.div<{ isOpen: boolean }>`
     transition: max-height 0.3s ease-in-out;
   }
   .sign-in {
-    background-color: black;
+    background-color: #105299;
     color: white;
     border-radius: 0.5rem;
+
+    padding: 1rem;
     &:hover {
       color: #dbe8ff;
     }
@@ -124,7 +183,7 @@ const MenuLink = styled.a`
   align-items: center;
   padding: 0.5rem 1rem;
   text-decoration: none;
-  color: #001e80;
+  color: #105299;
   font-size: 0.8rem;
   transition: color 0.3s ease-in-out;
 

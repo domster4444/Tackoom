@@ -61,7 +61,6 @@ export default function CounsellorSection({ title }: { title: string }) {
           return (
             <SwiperSlide key={index}>
               <CounsellorCard
-                data-aos="fade-up"
                 className="clickable"
                 $cardColor={cardColor}
                 $blobColor={blobColor}

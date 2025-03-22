@@ -129,7 +129,7 @@ export default function EnterpriseSection({
       >
         {enterpriseData.map((counsellor, index) => (
           <SwiperSlide key={index}>
-            <CounsellorCard data-aos="fade-up" imgProps={imgProps}>
+            <CounsellorCard imgProps={imgProps}>
               <div>
                 <div className="img-container">
                   <img src={counsellor.imageUrl} alt="" />

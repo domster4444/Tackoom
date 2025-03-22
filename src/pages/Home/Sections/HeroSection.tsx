@@ -12,7 +12,7 @@ const HeroSection = () => {
         <ClipPathGradient className="gradient-animate"></ClipPathGradient>
         <Container>
           <Box>
-            <LeftSection data-aos="fade-right">
+            <LeftSection>
               <Badge className="manrope-semibold">
                 Sessions 2025  ·  May 6–8 · Register now
               </Badge>
@@ -60,24 +60,31 @@ export default HeroSection;
 
 const OnBoardForm = styled.form`
   display: flex;
+  align-items: center;
   height: 2.7rem;
+  position: relative;
+  min-width: 70%;
+  @media (max-width: 768px) {
+    min-width: 90%;
+  }
   input {
+    height: 100%;
     font-size: 1rem;
     outline: none;
-    padding: 0 0.5rem;
+    min-width: 100%;
     color: grey;
+    background-color: #ffffff;
     border: 1px solid #e3e3e3;
-    border-top-left-radius: 0.35rem;
-    border-bottom-left-radius: 0.35rem;
+    border-radius: 1.5rem;
+    padding-left: 1rem;
   }
   button {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 0.35rem;
-    border-bottom-right-radius: 0.35rem;
-
+    position: absolute;
+    border-radius: 1.5rem;
     margin: 0;
-    height: 100%;
+    height: 80%;
+    font-size: 0.9rem;
+    right: 0;
   }
 `;
 
